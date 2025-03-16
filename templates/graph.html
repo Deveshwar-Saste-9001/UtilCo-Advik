@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Carbon Emission Trend</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Daily Carbon Emission Trend</h1>
+    <div>
+        <label for="slider">Select Daily Hours:</label>
+        <input type="range" id="slider" min="4" max="6" value="5" step="1" onchange="updateGraph(this.value)">
+        <span id="sliderValue">5</span>
+    </div>
+    <div id="graph"></div>
+
+    <script>
+        // Load the default graph on page load
+        $(document).ready(function () {
+            updateGraph(5);
+        });
+
+        // Function to update the graph
+        function updateGraph(value) {
+            document.getElementById('sliderValue').textContent = value;
+
+            $.ajax({
+                url: '/update_graph',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ slider_value: value }),
+                success: function (response) {
+                    var graphDiv = document.getElementById('graph');
+                    var graphData = JSON.parse(response.graph_json);
+
+                    Plotly.newPlot(graphDiv, graphData.data, graphData.layout);
+                }
+            });
+        }
+    </script>
+</body>
+</html> -->

@@ -1,0 +1,260 @@
+<html lang="en">
+
+<head>
+  <title>Organic Concrete Stork</title>
+  <meta property="og:title" content="Organic Concrete Stork" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename='js/myJS.js') }}"></script>
+  <script src="{{url_for('static',filename='js/myJS.js')}}"></script>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="deviceicon" onclick='handleDevicePopup()'>
+      <p id="deviceiconid" onclick='handleDevicePopup()'>
+        No devices
+      </p>
+    </div>
+    <div class="navigation">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 100px;">
+        <a class="navbar-brand" href="#"><img src="static/images/plus-square.svg" style="width: 50px; height:   40px;;"
+            alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <h3>Welcome User!</h3>
+          <div class="profile">
+            <div>
+              <h4>User Name</h4>
+              <p>use@gmail.com</p>
+            </div>
+            <img src="static/images/profileIcon.png" style="width: 50px; height:   50px;">
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="home-container1">
+      <div class="home-sidemenu">
+        <img alt="image" src="static/images/logo-200w-1100h.png" class="logo" />
+        <div class="side-menu-item selected" onclick="sideMenu(this,'/')">
+          <img alt="image"  src="static/images/homeIconNew.png" />
+          <p>Home</p>
+        </div>
+        <div class="side-menu-item " onclick="sideMenu(this, '/reward')">
+          <img alt="image"  src="static/images/rewardsicon-200h-1100h.png" />
+          <p>Rewards</p>
+        </div>
+        <div class="side-menu-item" onclick="sideMenu(this, '/green_audits')">
+          <img alt="image"  src="static/images/greenaudits-200w-1100h.png" />
+          <p>Report</p>
+        </div>
+
+      </div>
+
+      <img alt="image" src="static/images/mainHomeImage.png" id="mainImage" class="home-image14" />
+      <div class="yellow-a" id="yellowView"></div>
+      <div class="red-a" id="redView"></div>
+      <div class="green-a" id="greenView"></div>
+      <!-- <img src="static/images/picture1-500h.png" class = "yellow-image" alt=""><img src="static/images/picture2-400h.png" class = "red-image" alt=""><img src="static/images/picture3-500w.png" class = "green-image" alt=""> -->
+      <div class="home-container3" style="visibility: hidden;">
+        <button type="button" class="home-button1 button">X</button>
+      </div>
+      <div class="devicePopup" id="devicePopupid">
+        <button type="button" class="home-button1 " onclick="closeDevicePop()">X</button>
+        <img src="static/images/acUnit.png" alt="image" class="acUnit" onclick="handleGraphPopup(true)">
+        <img alt="image" src="static/images/lighticon2-200h.png" class="living-room-image11" />
+        <img alt="image" src="static/images/lighticon-200h.png" class="living-room-image12" />
+        <img alt="image" src="static/images/tvicon-200h.png" class="living-room-image13" />
+        <img alt="image" src="static/images/speakericon-200h.png" class="living-room-image14" />
+        <img alt="image" src="static/images/wifiicon-200h.png" class="living-room-image15" />
+        <img alt="image" src="static/images/coolericon-200h.png" class="living-room-image16" />
+      </div>
+      <div class="initial-popup" style="visibility: visible !important;">
+        <div class="home-container5">
+          <button type="button" id="close-popup" class="home-button2 button" onclick='handlePopup()'>X</button>
+          <img alt="image" src="static/images/carbonfootprint_home-500h.png" class="home-image15" />
+        </div>
+      </div>
+      <div class="home-slider">
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/mainHomeImage.png',false, true)"
+            src="static/images/house.jpg" class="home-image17" />
+          <p class="slider-icon-text">Home</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/bathroom2.jpg',false, false)"
+            src="static/images/bathroom2.jpg" class="home-image17" />
+          <p class="slider-icon-text">Bathroom</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/Bedroom1 - 90317.jpg', false, false)"
+            src="static\images\Bedroom1 - 90317.jpg" class="home-image17" />
+          <p class="slider-icon-text">Bedroom 1</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/bedroom2.jpg',false, false)"
+            src="static/images/bedroom2.jpg" class="home-image17" />
+          <p class="slider-icon-text">Bedroom 2</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/newKitchen.jpg', false, false)"
+            src="static/images/newKitchen.jpg" class="home-image17" />
+          <p class="slider-icon-text">Kitchen</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/newGarden.jpg', false, false)"
+            src="static/images/newGarden.jpg" class="home-image17" />
+          <p class="slider-icon-text">Garden</p>
+        </div>
+        <div>
+          <img alt="image" onclick="handleImageClick('static/images/pixelcut-export.png', true, false)"
+            src="static/images/pixelcut-export.png" class="home-image17" />
+          <p class="slider-icon-text">Living Room</p>
+        </div>
+      </div>
+      <div class="home-container6" style="visibility: hidden;">
+        <img alt="image" src="static/images/picture3-500w.png" class="home-image22" />
+        <img alt="image" src="static/images/picture1-500h.png" class="home-image23" />
+        <img alt="image" src="static/images/picture2-400h.png" class="home-image24" />
+      </div>
+      <div class="graphPopup" id="graphPopupID">
+
+        <!-- <img src="./static/images/graphbox.png" alt="image" class="home-image15" /> -->
+        <div style=" margin-top: 70px;">
+
+
+          <div class="horizontal-line"></div>
+          <div class="graphmenu">
+
+            <p class="titleText">Total Switch <br> on Time: </p>
+            <p class="titleValue">35 hrs</p>
+            <div class="vertical-line"></div>
+            <p class="titleText">Total Usage:</p>
+            <p class="titleValue">50KWH</p>
+            <div class="vertical-line"></div>
+            <p class="titleText">Total Carbon <br>Emmission:</p>
+            <p class="titleValue">65 Kg</p>
+
+          </div>
+          <div class="horizontal-line" style="top:120px;"></div>
+          <h6 style="position: absolute; top: 130px; left: 20px; color: #2d4a65; font-weight: bold;">Simulate Daily
+            Switch
+            on Timings</h6>
+        </div>
+        <div class="slider-container">
+
+          <div class="slider-wrapper">
+            <input type="range" id="slider" min="0" max="10" value="5" step="1" class="slider"
+              onchange="updateGraph(this.value)">
+            <div class="separator" style="left: 0%;"></div>
+            <div class="separator" style="left: 10.9%;"></div>
+            <div class="separator" style="left: 21%;"></div>
+            <div class="separator" style="left: 30.2%;"></div>
+            <div class="separator" style="left: 40%;"></div>
+            <div class="separator" style="left: 49.7%;"></div>
+            <div class="separator" style="left: 59%;"></div>
+            <div class="separator" style="left: 69%;"></div>
+            <div class="separator" style="left: 78.5%;"></div>
+            <div class="separator" style="left: 88.5%;"></div>
+            <div class="separator" style="left: 99%;"></div>
+
+          </div>
+
+          <!-- Month Labels -->
+          <div class="slider-labels">
+            <span>0</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+          </div>
+        </div>
+
+        <div id="graph"></div>
+
+
+        <h6 style="position: absolute; top: 520px; left: 20px; color: #2d4a65; font-weight: bold;">Upgrade with New
+          Model
+        </h6>
+
+        <div class="productContainer">
+          <div><img src="static/images/acUnit.png" alt="" id="productIcon"></div>
+          <div>
+            <p style="color: white; font-weight: bold;">Daizuki White Ductless Minisplit AC <br> System with Inverter
+              Technology <br><img src="static/images/_Pngtree_four_star_rating_sign_8436650-removebg-preview (1).png"
+                alt=""></p>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+        <!-- <div class = "graphDataContainer"><img src="static/images/graph5hrfinal-removebg-preview.png" alt="" id="graphData"></div> -->
+        <button type="button" class="home-button2 button" onclick="handleGraphPopup(false)">X</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script defer="" src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      updateGraph(5);
+    });
+
+
+
+
+    // Function to update the graph
+    function updateGraph(value) {
+      const sliderValue = document.getElementById('slider').value;
+      if (sliderValue == 4 || sliderValue == 5 || sliderValue == 6) {
+
+
+        fetch('/update_graph', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slider_value: sliderValue })
+        })
+          .then(response => response.json())
+          .then(data => {
+            const graph = JSON.parse(data.graph_json);
+            const config = { displayModeBar: false }; // Completely hide the menu bar
+            Plotly.newPlot('graph', graph.data, graph.layout, config);
+          })
+          .catch(error => console.error('Error:', error));
+      }
+    }
+  </script>
+</body>
+
+</html>
